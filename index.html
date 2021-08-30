@@ -17,7 +17,7 @@
         body{
             font-family: 'Poppins', sans-serif;
             background-image: url('img/clay-banks-u27Rrbs9Dwc-unsplash.jpg');
-            background-size: cover;
+            background-repeat: no-repeat;
         }
         #spinner{
             display: none;
@@ -25,6 +25,15 @@
         .error-message{
             display: none;
         }
+        @media screen and (max-width: 480px) {
+            body {
+        height:100vh;
+    }
+            .btn-search{
+                margin-left: 43px;
+    margin-top: 10px;
+            }
+}
     </style>
 </head>
 <body id="body">
@@ -37,9 +46,20 @@
 <div class="container">
     <h1 id="heading" class="text-center p-5 text-white">Weather In Your city</h1>
 <div class="input-group mb-3 w-50 mx-auto">
-    <input id="cityInputField" type="text" class="form-control" placeholder="Enter City name" aria-label="Recipient's username" aria-describedby="button-addon2">
-    <input id="countryInputField" type="text" class="form-control" placeholder="Enter Country Code" aria-label="Recipient's username" aria-describedby="button-addon2">
-    <button id="btn-search" onclick="searchCity()" class="btn btn-outline-secondary text-white border border-2" type="button" id="button-addon2">search</button>
+    <div class="row">
+        <div class="col-md-4 col-sm-12 mb-2">
+            <input id="cityInputField" type="text" class="form-control" placeholder="Enter City name" aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>
+        <div class="col-md-6 col-sm-12 mb-2">
+            <input id="countryInputField" type="text" class="form-control" placeholder="Enter Country Code" aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>
+        <div class="col-md-2 col-sm-12 btn-search">
+            <button id="btn-search" onclick="searchCity()" class="btn btn-outline-secondary text-white border border-2 " type="button" id="button-addon2">search</button>
+        </div>
+    </div>
+
+
+
   </div>
   <div class="text-center text-white bg-danger w-50 mx-auto error-message"  id="error-message">
       <p>There is a empty field</p>

@@ -77,21 +77,21 @@ const changeBodyImage=RainCloud=>{
     if(RainCloud=='Rain'){
         body.style.backgroundImage='url("img/rain1.jpg")';
         body.style.backgroundSize='cover';
-        body.style.backgroundRepeat='no repeat';
+        body.style.backgroundRepeat='no-repeat';
         heading.style.color='#fff';
         btn.style.color='white';
         btn.style.border='3px solid white';
     }
     else if(RainCloud=='Clouds'){
         body.style.backgroundImage='url("img/cloudy.jpg")';
-        body.style.backgroundSize='cover';
+        // body.style.backgroundSize='cover';
         body.style.backgroundRepeat='no repeat';
         heading.style.color='#fff';
     }
     else{
         body.style.backgroundImage='url("img/cloud.jpg")';
-        body.style.backgroundSize='cover';
-        body.style.backgroundRepeat='no repeat';
+        // body.style.backgroundSize='cover';
+        body.style.backgroundRepeat='no-repeat';
         heading.style.color='#fff';
         btn.style.color='white';
         btn.style.border='3px solid white';
