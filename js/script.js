@@ -11,6 +11,7 @@ const searchCity=()=>{
     const spinner=document.getElementById('spinner');
     spinner.style.display='block';
 
+
 // fetch data
     if(cityName && countryCode){
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=0cbeed5a6f8c75fcd1879cb5c2e0f390`)
@@ -24,6 +25,8 @@ const searchCity=()=>{
 }
 
 const displayWeather=weatherData=>{
+    console.log(weatherData.sys.country);
+    console.log(weatherData.name);
     console.log(weatherData);
     const icon=document.getElementById('icon');
     const bodyImage=changeBodyImage(weatherData.weather[0].main);
@@ -76,7 +79,7 @@ const changeBodyImage=RainCloud=>{
     const btn=document.getElementById('btn-search');
     if(RainCloud=='Rain'){
         body.style.backgroundImage='url("img/rain1.jpg")';
-        body.style.backgroundSize='cover';
+        body.style.backgroundSize='contian';
         body.style.backgroundRepeat='no-repeat';
         heading.style.color='#fff';
         btn.style.color='white';
@@ -84,13 +87,13 @@ const changeBodyImage=RainCloud=>{
     }
     else if(RainCloud=='Clouds'){
         body.style.backgroundImage='url("img/cloudy.jpg")';
-        // body.style.backgroundSize='cover';
+        body.style.backgroundSize='contian';
         body.style.backgroundRepeat='no repeat';
         heading.style.color='#fff';
     }
     else{
         body.style.backgroundImage='url("img/cloud.jpg")';
-        // body.style.backgroundSize='cover';
+        body.style.backgroundSize='cover';
         body.style.backgroundRepeat='no-repeat';
         heading.style.color='#fff';
         btn.style.color='white';
