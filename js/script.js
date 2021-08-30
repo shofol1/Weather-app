@@ -15,12 +15,31 @@ const searchCity=()=>{
 }
 
 const displayWeather=weatherData=>{
-    console.log(weatherData)
+    console.log(weatherData);
+    const icon=document.getElementById('icon');
+    const bodyImage=changeBodyImage(weatherData.weather[0].main);
+    // console.log(weatherData.weather[0].main);
+    if(weatherData.weather[0].main=='Rain'){
+        icon.innerHTML=`
+        </style>
+        <i class="fas fa-cloud-showers-heavy"></i>
+        `
+    }else if(weatherData.weather[0].main=='Clouds')(
+
+        icon.innerHTML=`
+        <i class="fas fa-cloud"></i>
+        `
+    )
+    else{
+        icon.innerHTML=`
+        <i class="fas fa-cloud-sun"></i>
+        `
+    }
     const weatherDetails=document.getElementById('weather-details');
     weatherDetails.textContent='';
     const div=document.createElement('div');
     div.innerHTML=`
-    <div class="row">
+    <div class="row text-white">
         <div class="col-md-4">
         <h2 class="text-center">${weatherData.main.temp}</h2>
         </div>
@@ -35,4 +54,32 @@ const displayWeather=weatherData=>{
     `
     weatherDetails.appendChild(div)
 
+}
+const changeBodyImage=RainCloud=>{
+    console.log(RainCloud);
+    const body=document.getElementById('body');
+    const heading=document.getElementById('heading');
+    const btn=document.getElementById('btn-search');
+    if(RainCloud=='Rain'){
+        body.style.backgroundImage='url("img/rain1.jpg")';
+        body.style.backgroundSize='cover';
+        body.style.backgroundRepeat='no repeat';
+        heading.style.color='#fff';
+        btn.style.color='white';
+        btn.style.border='3px solid white';
+    }
+    else if(RainCloud=='Clouds'){
+        body.style.backgroundImage='url("img/cloudy.jpg")';
+        body.style.backgroundSize='cover';
+        body.style.backgroundRepeat='no repeat';
+        heading.style.color='#fff';
+    }
+    else{
+        body.style.backgroundImage='url("img/cloud.jpg")';
+        body.style.backgroundSize='cover';
+        body.style.backgroundRepeat='no repeat';
+        heading.style.color='#fff';
+        btn.style.color='white';
+        btn.style.border='3px solid white';
+    }
 }
