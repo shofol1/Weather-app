@@ -7,11 +7,13 @@ const searchCity=()=>{
     // clear input value
     cityInputField.value='';
     countryInputField.value='';
+    const spinner=document.getElementById('spinner');
+    spinner.style.display='block';
 
 // fetch data
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=0cbeed5a6f8c75fcd1879cb5c2e0f390`)
 .then(res=>res.json())
-.then(data=>displayWeather(data));
+.then(data=>displayWeather(data));s
 }
 
 const displayWeather=weatherData=>{
@@ -19,6 +21,9 @@ const displayWeather=weatherData=>{
     const icon=document.getElementById('icon');
     const bodyImage=changeBodyImage(weatherData.weather[0].main);
     // console.log(weatherData.weather[0].main);
+    const spinner=document.getElementById('spinner');
+    spinner.style.display='none';
+    spinner.style.display='none';
     if(weatherData.weather[0].main=='Rain'){
         icon.innerHTML=`
         </style>
