@@ -22,6 +22,9 @@
         #spinner{
             display: none;
         }
+        .error-message{
+            display: none;
+        }
     </style>
 </head>
 <body id="body">
@@ -37,7 +40,9 @@
     <input id="cityInputField" type="text" class="form-control" placeholder="Enter City name" aria-label="Recipient's username" aria-describedby="button-addon2">
     <input id="countryInputField" type="text" class="form-control" placeholder="Enter Country Code" aria-label="Recipient's username" aria-describedby="button-addon2">
     <button id="btn-search" onclick="searchCity()" class="btn btn-outline-secondary text-white border border-2" type="button" id="button-addon2">search</button>
-
+  </div>
+  <div class="text-center text-white bg-danger w-50 mx-auto error-message"  id="error-message">
+      <p>There is a empty field</p>
   </div>
     <div>
    <div class=" text-center ">

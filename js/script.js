@@ -4,6 +4,7 @@ const searchCity=()=>{
     const cityName = cityInputField.value;
     const countryInputField=document.getElementById('countryInputField');
     const countryCode = countryInputField.value;
+    const errorMessage=document.getElementById('error-message');
     // clear input value
     cityInputField.value='';
     countryInputField.value='';
@@ -11,15 +12,23 @@ const searchCity=()=>{
     spinner.style.display='block';
 
 // fetch data
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=0cbeed5a6f8c75fcd1879cb5c2e0f390`)
+    if(cityName && countryCode){
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&appid=0cbeed5a6f8c75fcd1879cb5c2e0f390`)
 .then(res=>res.json())
-.then(data=>displayWeather(data));s
+.then(data=>displayWeather(data));
+    }else{
+        errorMessage.style.display='block';
+        spinner.style.display='none';
+
+    }
 }
 
 const displayWeather=weatherData=>{
     console.log(weatherData);
     const icon=document.getElementById('icon');
     const bodyImage=changeBodyImage(weatherData.weather[0].main);
+    const errorMessage=document.getElementById('error-message');
+    errorMessage.textContent='';
     // console.log(weatherData.weather[0].main);
     const spinner=document.getElementById('spinner');
     spinner.style.display='none';
